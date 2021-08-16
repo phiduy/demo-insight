@@ -4,14 +4,15 @@ import ReactEChartsCore from 'echarts-for-react/lib/core';
 // Import the echarts core module, which provides the necessary interfaces for using echarts.
 import * as echarts from 'echarts/core';
 // Import charts, all with Chart suffix
-import { PieChart } from 'echarts/charts';
+import { BarChart } from 'echarts/charts';
 // import components, all suffixed with Component
 import {
   GridComponent,
   TooltipComponent,
   TitleComponent,
   DataZoomComponent,
-  ToolboxComponent
+  ToolboxComponent,
+  LegendComponent
 } from 'echarts/components';
 // Import renderer, note that introducing the CanvasRenderer or SVGRenderer is a required step
 import { CanvasRenderer } from 'echarts/renderers';
@@ -23,41 +24,25 @@ echarts.use([
   TitleComponent,
   TooltipComponent,
   GridComponent,
-  PieChart,
+  BarChart,
   CanvasRenderer,
   DataZoomComponent,
-  ToolboxComponent
+  ToolboxComponent,
+  LegendComponent
 ]);
 
-const EBasicPieChart = props => {
+const EBarChart = props => {
   const { chartOptions, loading } = props;
   const options = merge(
     {
-      tooltip: {
-        trigger: 'item',
-        formatter: '{a} <br/>{b} : {c} ({d}%)'
+      xAxis: {
+        type: 'category',
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
       },
-      legend: {
-        orient: 'horizontal',
-        left: 'top',
-        data: chartOptions.legend
+      yAxis: {
+        type: 'value'
       },
-      series: [
-        {
-          type: 'pie',
-          radius: '55%',
-          center: ['50%', '50%'],
-          selectedMode: 'single',
-          data: chartOptions.series,
-          emphasis: {
-            itemStyle: {
-              shadowBlur: 10,
-              shadowOffsetX: 0,
-              shadowColor: 'rgba(0, 0, 0, 0.5)'
-            }
-          }
-        }
-      ]
+      series: chartOptions.series
     },
     chartOptions.optional
   );
@@ -72,13 +57,14 @@ const EBasicPieChart = props => {
   );
 };
 
-EBasicPieChart.propTypes = {
+EBarChart.propTypes = {
   loading: PropTypes.bool,
   chartOptions: PropTypes.shape({
-    legend: PropTypes.arrayOf(PropTypes.string),
+    labels: PropTypes.arrayOf(PropTypes.string),
     series: PropTypes.array,
+    legend: PropTypes.arrayOf(PropTypes.string),
     optional: PropTypes.object
   }).isRequired
 };
 
-export default EBasicPieChart;
+export default EBarChart;

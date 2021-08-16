@@ -1,18 +1,16 @@
 import React from 'react';
-import Tasks from './Tasks';
-import NewUsers from './NewUsers';
-import ItemOrders from './ItemOrders';
-import BugReports from './BugReports';
-import NewsUpdate from './NewsUpdate';
 import Page from '~/components/Page';
-import WeeklySales from './WeeklySales';
 import FollowingContract from './FollowingContract';
 import ContractByRegion from './ContractByRegion';
-import OrderTimeline from './OrderTimeline';
-import TrafficBySite from './TrafficBySite';
+import AcquisitionTrend from './acquisitionTrend';
+import TotalAdvance from './TotalAdvance';
 import ModemConnectionQuality from './ModemConnectionQuality';
 import ProportionReport from './ProportionReport';
 import ContractByPayTv from './ContractByPayTV';
+import TrafficPlaceDensity from './TrafficPlaceDensity';
+import TotalBusinessHomeContract from './TotalBusinessHomeContract';
+import ContractCanceledByPackage from './ContractCanceledByPackage';
+import ContractCanceledByAge from './ContractCanceledByAge';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Grid, Container, Typography } from '@material-ui/core';
 
@@ -22,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   root: {}
 }));
 
-function DashboardEcommerceView() {
+function DashboardOverview() {
   const classes = useStyles();
 
   return (
@@ -32,20 +30,6 @@ function DashboardEcommerceView() {
           <Typography variant="h4">Hi, Welcome back</Typography>
         </Box>
         <Grid container spacing={2}>
-          {/*********************/}
-          {/* <Grid item xs={12} sm={6} md={3}>
-            <WeeklySales />
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <NewUsers />
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <ItemOrders />
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <BugReports />
-          </Grid> */}
-
           {/*********************/}
           <Grid item xs={12} md={6} lg={6}>
             <FollowingContract />
@@ -57,12 +41,12 @@ function DashboardEcommerceView() {
           </Grid>
 
           {/*********************/}
-          <Grid item xs={12} md={6} lg={6}>
+          <Grid item xs={12} md={6} lg={4}>
             <ContractByRegion />
           </Grid>
 
           {/*********************/}
-          <Grid item xs={12} md={6} lg={6}>
+          <Grid item xs={12} md={6} lg={8}>
             <ContractByPayTv />
           </Grid>
 
@@ -72,18 +56,33 @@ function DashboardEcommerceView() {
           </Grid>
 
           {/*********************/}
-          <Grid item xs={12} md={6} lg={4}>
-            <OrderTimeline />
+          <Grid item xs={12} md={6} lg={6}>
+            <AcquisitionTrend />
           </Grid>
 
           {/*********************/}
-          <Grid item xs={12} md={6} lg={4}>
-            <TrafficBySite />
+          <Grid item xs={12} md={6} lg={6}>
+            <TotalAdvance />
           </Grid>
 
           {/*********************/}
-          <Grid item xs={12} md={6} lg={8}>
-            <Tasks />
+          <Grid item xs={12} md={6} lg={6}>
+            <TrafficPlaceDensity />
+          </Grid>
+
+          {/*********************/}
+          <Grid item xs={12} md={6} lg={6}>
+            <TotalBusinessHomeContract />
+          </Grid>
+
+          {/*********************/}
+          <Grid item xs={12} md={6} lg={12}>
+            <ContractCanceledByPackage />
+          </Grid>
+
+          {/*********************/}
+          <Grid item xs={12} md={6} lg={12}>
+            <ContractCanceledByAge />
           </Grid>
         </Grid>
       </Container>
@@ -91,4 +90,4 @@ function DashboardEcommerceView() {
   );
 }
 
-export default DashboardEcommerceView;
+export default DashboardOverview;

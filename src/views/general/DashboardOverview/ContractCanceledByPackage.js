@@ -1,12 +1,11 @@
 import clsx from 'clsx';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { EStackedLineChart } from '~/components/Charts/ECharts';
+import { EStackedBarChart } from '~/components/Charts/ECharts';
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardHeader, Box } from '@material-ui/core';
+import { contractCanceledByPackageData } from '../../../data/chart/contractCanceledByPackage';
 import { uniq } from 'lodash';
-import { proportionData } from '../../../data/chart/proportion';
-import { contractByPayTVdata } from '../../../data/chart/contractByPayTV';
 
 // ----------------------------------------------------------------------
 
@@ -16,33 +15,35 @@ const useStyles = makeStyles(() => ({
 
 // ----------------------------------------------------------------------
 
-ContractByPayTv.propTypes = {
+ContractCanceledByPackage.propTypes = {
   className: PropTypes.string
 };
 
-function ContractByPayTv({ className, ...other }) {
+function ContractCanceledByPackage({ className, ...other }) {
   const classes = useStyles();
-  const chartLegend = uniq(contractByPayTVdata.map(d => d.current_package));
+  const chartLegend = uniq(
+    contractCanceledByPackageData.map(d => d.age_segment)
+  );
   const chartData = chartLegend.map(k => {
     return {
       name: k,
-      type: 'line',
-      smooth: true,
-      data: contractByPayTVdata
-        .filter(tempt => tempt.current_package === k)
+      type: 'bar',
+      stack: 'total',
+      emphasis: {
+        focus: 'series'
+      },
+      data: contractCanceledByPackageData
+        .filter(tempt => tempt.age_segment === k)
         .map(item => item.num_contract)
     };
   });
-  const chartLabel = uniq(proportionData.map(item => item.date));
+  const chartLabel = uniq(contractCanceledByPackageData.map(item => item.date));
 
   return (
     <Card className={clsx(classes.root, className)} {...other}>
-      <CardHeader
-        title="Contract By PayTv Service"
-        // subheader="(+43%) than last year"
-      />
+      <CardHeader title="Contract canceled by package" />
       <Box sx={{ mx: 3, mb: 1 }}>
-        <EStackedLineChart
+        <EStackedBarChart
           chartOptions={{
             labels: chartLabel,
             series: chartData,
@@ -54,4 +55,4 @@ function ContractByPayTv({ className, ...other }) {
   );
 }
 
-export default ContractByPayTv;
+export default ContractCanceledByPackage;
