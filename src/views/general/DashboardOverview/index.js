@@ -2,7 +2,7 @@ import React from 'react';
 import Page from '~/components/Page';
 import FollowingContract from './FollowingContract';
 import ContractByRegion from './ContractByRegion';
-import AcquisitionTrend from './acquisitionTrend';
+import AcquisitionTrend from './AcquisitionTrend';
 import TotalAdvance from './TotalAdvance';
 import ModemConnectionQuality from './ModemConnectionQuality';
 import ProportionReport from './ProportionReport';
