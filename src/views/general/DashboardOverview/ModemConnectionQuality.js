@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { EStackedBarChart } from '~/components/Charts/ECharts';
+import { EStackedBarChart } from '~/components/Charts/Echarts';
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardHeader, Box } from '@material-ui/core';
 import { modemConnectQualityData } from '../../../data/chart/modemConnectQuality';

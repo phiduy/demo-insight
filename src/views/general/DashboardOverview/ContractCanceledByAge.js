@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import { EBasicBubbleChart } from '~/components/Charts/ECharts';
+import { EBasicBubbleChart } from '~/components/Charts/Echarts';
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardHeader, Box } from '@material-ui/core';
 import { contractCanceledByAgeData } from '../../../data/chart/contractCanceledByAge';

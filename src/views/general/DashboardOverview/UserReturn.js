@@ -2,7 +2,7 @@ import { merge } from 'lodash';
 import clsx from 'clsx';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { EStackedLineChart } from '~/components/Charts/ECharts';
+import { EStackedLineChart } from '~/components/Charts/Echarts';
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardHeader, Box } from '@material-ui/core';
 import { userReturnData } from '../../../data/chart/userReturn';
