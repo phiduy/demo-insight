@@ -11,9 +11,12 @@ import TrafficPlaceDensity from './TrafficPlaceDensity';
 import TotalBusinessHomeContract from './TotalBusinessHomeContract';
 import ContractCanceledByPackage from './ContractCanceledByPackage';
 import ContractCanceledByAge from './ContractCanceledByAge';
+import ChurnTrending from './ChurnTrending';
+import UserReturn from './UserReturn';
+import MostPackageGrowth from './MostPackageGrowth';
+
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Grid, Container, Typography } from '@material-ui/core';
-
 // ----------------------------------------------------------------------
 
 const useStyles = makeStyles(theme => ({
@@ -83,6 +86,21 @@ function DashboardOverview() {
           {/*********************/}
           <Grid item xs={12} md={6} lg={12}>
             <ContractCanceledByAge />
+          </Grid>
+
+          {/*********************/}
+          <Grid item xs={12} md={6} lg={6}>
+            <ChurnTrending />
+          </Grid>
+          {/*********************/}
+
+          <Grid item xs={12} md={6} lg={6}>
+            <UserReturn />
+          </Grid>
+          {/*********************/}
+
+          <Grid item xs={12} md={6} lg={12}>
+            <MostPackageGrowth />
           </Grid>
         </Grid>
       </Container>

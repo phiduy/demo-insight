@@ -36,10 +36,11 @@ const EStackedBarChart = props => {
   const options = merge(
     {
       tooltip: {
-        trigger: 'axis',
+        trigger: 'item',
         axisPointer: {
           // Use axis to trigger tooltip
-          type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+          type: 'shadow', // 'shadow' as default; can also be 'line' or 'shadow'
+          z: 100
         }
       },
       legend: {
