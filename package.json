@@ -124,9 +124,6 @@
     "simplebar-react": "2.3.0",
     "slick-carousel": "1.8.1",
     "socket.io-client": "2.3.0",
-    "webpack": "^5.50.0",
-    "webpack-cli": "^4.8.0",
-    "webpack-dev-server": "^3.11.2",
     "yup": "0.28.5"
   },
   "devDependencies": {
